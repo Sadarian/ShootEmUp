@@ -6,9 +6,11 @@
  * To change this template use File | Settings | File Templates.
  */
 package Entities {
+	import starling.display.Image;
+
 	public class Bullet extends Entity {
 		public function Bullet() {
-
+			var bullet:Image = new Image(Assets.getTexture("BulletPicture"));
 		}
 
 

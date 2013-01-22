@@ -11,6 +11,7 @@ package {
 
 	import starling.core.Starling;
 
+	[SWF(width="1280", height="800", frameRate="60", backgroundColor="#ffffff")]
 	public class ShootEmUp extends Sprite {
 		private var _starling:Starling;
 
@@ -27,27 +28,10 @@ package {
 		}
 
 		private function handelScaling():void {
-			var guiSize:Rectangle = new Rectangle(0, 0, 1024, 600);
+			var guiSize:Rectangle = new Rectangle(0, 0, 1280, 800);
 			var deviceSize:Rectangle = new Rectangle(0, 0,
 					Math.max(stage.fullScreenWidth, stage.fullScreenHeight),
 					Math.min(stage.fullScreenWidth, stage.fullScreenHeight));
-
-			var appScale:Number = 1; var appSize:Rectangle = guiSize.clone(); var appLeftOffset:Number = 0;
-
-			// if device is wider than GUI's aspect ratio, height determines scale
-			if ((deviceSize.width/deviceSize.height) > (guiSize.width/guiSize.height))
-			{
-				 appScale = deviceSize.height / guiSize.height;
-				 appSize.width = deviceSize.width / appScale;
-				 appLeftOffset = Math.round((appSize.width - guiSize.width) / 2);
-			}
-			// if device is taller than GUI's aspect ratio, width determines scale
-			else
-			{
-				appScale = deviceSize.width / guiSize.width;
-				appSize.height = deviceSize.height / appScale;
-				appLeftOffset = 0;
-			}
 		}
 
 

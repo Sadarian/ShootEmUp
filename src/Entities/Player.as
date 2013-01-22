@@ -9,12 +9,13 @@ package Entities {
 	import Entities.Entity;
 
 	import starling.core.Starling;
-
-	import starling.display.MovieClip;
-
 	import starling.display.MovieClip;
 
 	public class Player extends Entity {
+		private var bullets:Array = [];
+		private var bullet:Bullet;
+		private var shootCooldown:int = 0;
+		private var shootingRate:int = 40;
 		public function Player() {
 
 		}
@@ -23,13 +24,25 @@ package Entities {
 			var playerMovi:MovieClip = new MovieClip(Assets.createAtlasAnim("StickFigure", 9, 8, 70).getTextures(),60);
 			Starling.juggler.add(playerMovi);
 			playerMovi.play();
+			addChild(playerMovi);
 		}
 
-		public function shoot():void {
-			
+		private function shoot():void {
+			bullet = new Bullet();
+			bullets.push(bullet);
+			trace("shoot");
 		}
 
 		override public function update():void {
+			if (shootCooldown == shootingRate)
+			{
+				shoot();
+				shootCooldown = 0;
+			}
+			else
+			{
+				shootCooldown++;
+			}
 
 		}
 

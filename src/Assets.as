@@ -19,9 +19,11 @@ package
 	public class Assets 
 	{
 		//Font for the game 
-		[Embed(source = "../assets/running_Stick_ Figure_ 9x8-2.png")]
+		[Embed(source = "../assets/running_Stick_Figure_9x8.png")]
         public static const StickFigure:Class;
 
+		[Embed(source = "../assets/Bullet.png")]
+		public static const BulletPicture:Class;
 
 		
 		
